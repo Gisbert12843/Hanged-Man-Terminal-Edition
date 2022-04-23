@@ -1,89 +1,3 @@
-""""
-character_name = "Peter"
-character_age = "80"
-
-print("His Name was " + character_name + ", he died at the age of " + character_age + ".\n")
-
-repeat = input("Enter something to repeat please :)\n")
-print("repeating..\n" + repeat + "\n\n")
-"""
-"""
-character_list = []
-character_list.append(input("Type the Name of your first Character.\n"))
-character_list.append(input("Type the Name of your second Character.\n"))
-character_list.append(input("Type the Name of your third Character.\n"))
-print("Repeating the CharacterList in order now!\n")
-print(character_list[0:])
-
-"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-
-good_drawing = [("----------"), ("|      |  "), ("|      |  "),("|      O  "),("|      |  "),("|    /   \ "),("|      |  "),("|     | |  "),("|     - -  "),("|_________")]
-
-def draw(x):
-    for i in range(x):
-        print(good_drawing[i])
-        i += i
-
-
-
-def run(secret_w):
-    guess_count = 0
-    guessed_word = "NONE"
-    secret_word = secret_w
-    print("\n\n\n\n\n\n\n***Welcome to Hang-Man!***\nIt's time for you to guess our secret word of the Day!\n\n\n\n")
-    guessed_word = str(input("Please make a guess!\n"))
-    while guessed_word != secret_word:
-        guess_count += 1
-        draw(guess_count)
-        guessed_word = str(input("Please make a guess!\n"))
-
-
-run("Hallo")
-print("***OMG YOU DID IT YOU MADLAD!!!***")
-
-
-"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 good_drawing = [("----------"), ("|         "), ("|        "),("|        "),("|        "),("|        "),("|        "),("|        "),("|       "),("|_________")]
 bad_drawing = [("----------"), ("|      |  "), ("|      |  "),("|      O  "),("|      |  "),("|  /  |  \ "),("|     | |  "),("|     | |  "),("|     - -  "),("|_________")]
 
@@ -133,3 +47,96 @@ run("Hallo")
 
 
 print("***OMG YOU DID IT YOU MADLAD!!!***")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###THIS IS THE SHIT VERSION
+
+"""
+good_drawing = [("----------"), ("|      |  "), ("|      |  "),("|      O  "),("|      |  "),("|    /   \ "),("|      |  "),("|     | |  "),("|     - -  "),("|_________")]
+
+def draw(x):
+    for i in range(x):
+        print(good_drawing[i])
+        i += i
+
+
+
+def run(secret_w):
+    guess_count = 0
+    guessed_word = "NONE"
+    secret_word = secret_w
+    print("\n\n\n\n\n\n\n***Welcome to Hang-Man!***\nIt's time for you to guess our secret word of the Day!\n\n\n\n")
+    guessed_word = str(input("Please make a guess!\n"))
+    while guessed_word != secret_word:
+        guess_count += 1
+        draw(guess_count)
+        guessed_word = str(input("Please make a guess!\n"))
+
+
+run("Hallo")
+print("***OMG YOU DID IT YOU MADLAD!!!***")
+"""
