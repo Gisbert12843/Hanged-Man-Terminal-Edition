@@ -1,2 +1,3 @@
 # Hanged Man Terminal Edition
-# Its not done even the slightest
+# it's not even close to being finished or by that working
+
