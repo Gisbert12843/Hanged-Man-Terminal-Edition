@@ -1,31 +1,36 @@
+from ast import Break
+
+
 good_drawing = [("----------"), ("|         "), ("|        "),("|        "),("|        "),("|        "),("|        "),("|        "),("|       "),("|_________")]
 bad_drawing = [("----------"), ("|      |  "), ("|      |  "),("|      O  "),("|      |  "),("|  /  |  \ "),("|     | |  "),("|     | |  "),("|     - -  "),("|_________")]
 
+
+
+
 def draw(guess_count, guessed_wrong):
+
     guess_count_local = guess_count
     guessed_wrong_local = guessed_wrong
     for i in range(guess_count_local):
         for i in range(guessed_wrong_local):
             print(bad_drawing[i])
-            guess_count_local -= guess_count_local
+            guess_count_local -= 1
             i += i
         i += i
 
-
-
 def is_in_list(char, list):
-    for i in range(len(list)):
-        if(char == list[i]):
-            return 1
+    while(1):
+        for i in range(len(list)):
+            if(char == list[i]):
+                break
+            
+
     return 0
-
-
-
 
 def run(secret_w):
 
     secret_word = secret_w
-    guess_count = 0
+    guess_count = 10
     guessed_wrong = 0
     guessed_char = ''
     guessed_list = []
@@ -33,14 +38,18 @@ def run(secret_w):
 
     print("\n\n\n\n\n\n\n***Welcome to Hang-Man!***\nIt's time for you to guess our secret word of the Day!\n\n\n\n")
     
+    
+
     while 1:
         guessed_char = str(input("Please make a guess!\n"))
         while(is_in_list(guessed_char)):
             guessed_char = str(input("Letter was already guessed.\nPlease make a new guess!\n"))
-        guess_count += 1
+
+
         if (is_in_list(guessed_char, secret_word)):
-            return
-        draw(guess_count)
+            print("Yes! " + guessed_char + " is part of the secret word!\n")
+            
+        draw(10, guessed_wrong)
 
 
 run("Hallo")
