@@ -1,7 +1,8 @@
 from ast import Break
 from random import randint
-
-
+import os
+clear = lambda: os.system('cls')
+import time
 
 good_drawing = [("----------"), ("|         "), ("|        "),("|        "),("|        "),("|        "),("|        "),("|        "),("|       "),("|_________")]
 bad_drawing = [("----------"), ("|      |  "), ("|      |  "),("|      O  "),("|     /|\ "),("|    / | \ "),("|     | |  "),("|     | |  "),("|     - -  "),("|_________")]
@@ -42,7 +43,7 @@ def run(secret_w):
     for i in secret_word:
         guessed_secret.append('*')
 
-    print("\n\n\n\n\n\n\n***Welcome to Hang-Man!***\nIt's time for you to guess our secret word of the Day!\n\n\n\n")
+    print("\n***Welcome to Hang-Man!***\nIt's time for you to guess our secret word of the Day!\n\n")
     
     
 
@@ -60,6 +61,7 @@ def run(secret_w):
 
         else: 
             guessed_wrong+=1
+            clear()
             draw(10, guessed_wrong)
         
         if(guessed_wrong>=8):
@@ -67,27 +69,37 @@ def run(secret_w):
             return
         elif(guessed_secret == secret_word):
             break
-    print("\n\n-----------------------------------------------\n|\t\t\t\t\t\t|\n|\t\t\t\t\t\t|")
+    clear()
+    print("\n\n\n\n-----------------------------------------------\n|\t\t\t\t\t\t|\n|\t\t\t\t\t\t|")
     print("|\t***OMG YOU DID IT YOU MADLAD!!!***\t|")
     print("|\t\t\t\t\t\t|\n|\t\t\t\t\t\t|\n----------------------------------------------\n\n")
+    for i in (1,2,3,4,5):
+        print('.', end='', flush=True)
+        time.sleep(1)
 
 while(1):
+    clear()
     x = 0
-    x = int(input("Please choose a gamemode!\n0)\tRandom Word\n1)\t2 Players - 1 chooses, 1 guesses\nEnter 3 to exit.\n"))
-    if(x == 0):
+    x = int(input("Please choose a gamemode!\n1)\tRandom Word\n2)\t2 Players - 1 chooses, 1 guesses\nEnter x to exit.\n"))
+    if(x == 1):
+        clear()
         print("\nGeneration Random Word...")
         run(dictionary[randint(0,len(dictionary)-1)].lower())
-    elif(x == 1):
+        for i in (1,2,3,4,5):
+            print('.', end='', flush=True)
+            time.sleep(1)
+    elif(x == 2):
         while(1):
             user_word = str(input("\nPlease provide a word to be guesses!\n")).lower()
-            if(user_word.isalpha):
+            if(user_word.isalpha()):
+                clear()
                 run(user_word)
                 break
             else:
                 print("Invalid Input, nice try though.\n")
                 continue
 
-    elif(x == 3):
+    elif(x == "x"):
         print("\nThx for playing!\n")
         break
     else:
