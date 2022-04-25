@@ -50,11 +50,13 @@ def run(secret_w):
     while guessed_list != secret_word:
         guessed_char = str(input("\nPlease make a guess!\n"))[0].lower()
         while(is_in_list(guessed_char, guessed_list)>0):
+            clear()
             guessed_char = str(input("Letter was already guessed.\nPlease make a new guess!\n"))[0].lower()
         guessed_list.append(guessed_char)
 
 
         if (is_in_list(guessed_char, secret_word, guessed_secret)>0):
+            clear()
             print("Yes! " + guessed_char + " is part of the secret word!\n")
             print(guessed_secret)
 
@@ -80,7 +82,7 @@ def run(secret_w):
 while(1):
     clear()
     x = 0
-    x = int(input("Please choose a gamemode!\n1)\tRandom Word\n2)\t2 Players - 1 chooses, 1 guesses\nEnter x to exit.\n"))
+    x = int(input("Please choose a gamemode!\n1)\tRandom Word\n2)\t2 Players - 1 chooses, 1 guessed\nEnter x to exit.\n"))
     if(x == 1):
         clear()
         print("\nGeneration Random Word...")
