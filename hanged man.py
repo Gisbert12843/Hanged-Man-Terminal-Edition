@@ -1,11 +1,12 @@
 from ast import Break
+from random import randint
 
 
 
 good_drawing = [("----------"), ("|         "), ("|        "),("|        "),("|        "),("|        "),("|        "),("|        "),("|       "),("|_________")]
-bad_drawing = [("----------"), ("|      |  "), ("|      |  "),("|      O  "),("|      |  "),("|   /  |  \ "),("|     | |  "),("|     | |  "),("|     - -  "),("|_________")]
+bad_drawing = [("----------"), ("|      |  "), ("|      |  "),("|      O  "),("|     /|\ "),("|    / | \ "),("|     | |  "),("|     | |  "),("|     - -  "),("|_________")]
 
-
+dictionary = [("time" ),("person" ),("year" ),("way" ),("day" ),("thing" ),("man" ),("world" ),("life" ),("hand" ),("part" ),("child" ),("eye" ),("woman" ),("place" ),("work" ),("week" ),("case" ),("point" ),("government" ),("company" ),("number" ),("group" ),("problem" ),("fact" )]
 
 
 def draw(guess_count, guessed_wrong):
@@ -46,9 +47,9 @@ def run(secret_w):
     
 
     while guessed_list != secret_word:
-        guessed_char = str(input("\nPlease make a guess!\n"))[0]
+        guessed_char = str(input("\nPlease make a guess!\n"))[0].lower()
         while(is_in_list(guessed_char, guessed_list)>0):
-            guessed_char = str(input("Letter was already guessed.\nPlease make a new guess!\n"))[0]
+            guessed_char = str(input("Letter was already guessed.\nPlease make a new guess!\n"))[0].lower()
         guessed_list.append(guessed_char)
 
 
@@ -70,6 +71,25 @@ def run(secret_w):
     print("|\t***OMG YOU DID IT YOU MADLAD!!!***\t|")
     print("|\t\t\t\t\t\t|\n|\t\t\t\t\t\t|\n----------------------------------------------\n\n")
 
+while(1):
+    x = 0
+    x = int(input("Please choose a gamemode!\n0)\tRandom Word\n1)\t2 Players - 1 chooses, 1 guesses\nEnter 3 to exit.\n"))
+    if(x == 0):
+        print("\nGeneration Random Word...")
+        run(dictionary[randint(0,len(dictionary)-1)].lower())
+    elif(x == 1):
+        while(1):
+            user_word = str(input("\nPlease provide a word to be guesses!\n")).lower()
+            if(user_word.isalpha):
+                run(user_word)
+                break
+            else:
+                print("Invalid Input, nice try though.\n")
+                continue
 
-
-run("mama")
+    elif(x == 3):
+        print("\nThx for playing!\n")
+        break
+    else:
+        print("Not a valid input.")
+        continue
