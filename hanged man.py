@@ -48,9 +48,11 @@ def run(secret_w):
     
 
     while guessed_list != secret_word:
+        print(guessed_secret)
         guessed_char = str(input("\nPlease make a guess!\n"))[0].lower()
         while(is_in_list(guessed_char, guessed_list)>0):
             clear()
+            print(guessed_secret)
             guessed_char = str(input("Letter was already guessed.\nPlease make a new guess!\n"))[0].lower()
         guessed_list.append(guessed_char)
 
@@ -65,6 +67,7 @@ def run(secret_w):
             guessed_wrong+=1
             clear()
             draw(10, guessed_wrong)
+            
         
         if(guessed_wrong>=8):
             print("Exceeded 10 guesses :( guess you suck..\n")
