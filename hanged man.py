@@ -71,6 +71,9 @@ def run(secret_w):
         
         if(guessed_wrong>=8):
             print("Exceeded 10 guesses :( guess you suck..\n")
+            for i in (1,2,3,4,5):
+                    print('.', end='', flush=True)
+                    time.sleep(1)
             return
         elif(guessed_secret == secret_word):
             break
@@ -102,10 +105,14 @@ while(1):
                 break
             else:
                 print("Invalid Input, nice try though.\n")
+                
                 continue
 
     elif(x == "x"):
         print("\nThx for playing!\n")
+        for i in (1,2,3,4,5):
+            print('.', end='', flush=True)
+            time.sleep(1)
         break
     else:
         print("Not a valid input.")
